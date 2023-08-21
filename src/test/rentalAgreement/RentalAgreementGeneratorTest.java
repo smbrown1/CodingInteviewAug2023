@@ -4,6 +4,7 @@ import main.rentalAgreement.RentalAgreement;
 import main.rentalAgreement.RentalAgreementGenerator;
 import org.junit.jupiter.api.Test;
 
+import static main.rentalAgreement.Tool.JAKR;
 import static org.junit.jupiter.api.Assertions.*;
 
 class RentalAgreementGeneratorTest
@@ -14,13 +15,10 @@ class RentalAgreementGeneratorTest
     public void testNoDiscountSingleDay()
     {
         RentalAgreement expected = new RentalAgreement(
-                "JAKR",
-                "Jackammer",
-                "DeWalt",
+                JAKR,
                 1,
                 "9/3/15", //Thursday
                 "9/4/15",    //Friday
-                2.99,
                 1,
                 2.99,
                 0,
