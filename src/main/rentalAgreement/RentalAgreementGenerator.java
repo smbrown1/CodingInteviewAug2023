@@ -2,7 +2,7 @@ package main.rentalAgreement;
 
 public class RentalAgreementGenerator
 {
-    public static RentalAgreement generateAgreement(String toolCode, String checkoutDate, int rental_days, double discount)
+    public RentalAgreement generateAgreement(String toolCode, String checkoutDate, int rental_days, double discount)
     {
         return new RentalAgreement(
                 "JAKR",

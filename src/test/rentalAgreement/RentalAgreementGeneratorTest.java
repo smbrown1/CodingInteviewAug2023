@@ -27,7 +27,7 @@ class RentalAgreementGeneratorTest
                 0,
                 2.99
         );
-        RentalAgreement result = RentalAgreementGenerator.generateAgreement("JAKR", "9/3/15", 1, 0);
+        RentalAgreement result = rentalAgreementGenerator.generateAgreement("JAKR", "9/3/15", 1, 0);
 
         assertEquals(expected, result);
     }
