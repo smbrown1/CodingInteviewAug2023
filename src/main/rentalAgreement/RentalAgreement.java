@@ -1,20 +1,21 @@
 package main.rentalAgreement;
 
+import java.time.LocalDate;
 import java.util.Objects;
 
 public class RentalAgreement
 {
     private final Tool tool;
     private final int rentalDays;
-    private final String checkoutDate;
-    private final String dueDate;
+    private final LocalDate checkoutDate;
+    private final LocalDate dueDate;
     private final int chargeDays;
     private final double prediscountCharge;
     private final double discountPercent;
     private final double discountAmount;
     private final double finalCharge;
 
-    public RentalAgreement(Tool tool, int rentalDays, String checkoutDate, String dueDate, int chargeDays, double prediscountCharge, double discountPercent, double discountAmount, double finalCharge)
+    public RentalAgreement(Tool tool, int rentalDays, LocalDate checkoutDate, LocalDate dueDate, int chargeDays, double prediscountCharge, double discountPercent, double discountAmount, double finalCharge)
     {
         this.tool = tool;
         this.rentalDays = rentalDays;
