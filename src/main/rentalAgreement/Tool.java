@@ -17,4 +17,14 @@ public enum Tool
         this.toolType = toolType;
         this.brand = brand;
     }
+
+    public ToolType getToolType()
+    {
+        return toolType;
+    }
+
+    public String getBrand()
+    {
+        return brand;
+    }
 }

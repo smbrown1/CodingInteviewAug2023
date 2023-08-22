@@ -46,6 +46,45 @@ class RentalAgreementGeneratorTest
     }
 
     @Test
+    public void testNegativeRentalDays()
+    {
+        String checkoutDate = "09/03/2015";
+
+        assertThrows(IllegalArgumentException.class, () -> rentalAgreementGenerator.generateAgreement("JAKR", checkoutDate, -1, 0));
+    }
+
+    @Test
+    public void testNotRealTool()
+    {
+        String checkoutDate = "09/03/2015";
+
+        assertThrows(IllegalArgumentException.class, () -> rentalAgreementGenerator.generateAgreement("FAKE", checkoutDate, 1, 0));
+    }
+
+    @Test
+    public void testFreeWeekend()
+    {
+        String checkoutDate = "08/07/2015";
+        String expectedDueDate = "08/10/2015";
+
+        RentalAgreement expected = new RentalAgreement(
+                JAKR,
+                4,
+                LocalDate.parse(checkoutDate, DateTimeFormatter.ofPattern("MM/dd/yyyy")), //Thursday
+                LocalDate.parse(expectedDueDate, DateTimeFormatter.ofPattern("MM/dd/yyyy")), //Friday
+                2,
+                5.96,
+                0,
+                2.98,
+                2.98
+        );
+
+        RentalAgreement result = rentalAgreementGenerator.generateAgreement("CHNS", checkoutDate, 5, 0);
+
+        assertEquals(expected, result);
+    }
+
+    @Test
     // one free day for the holiday but we charge for the weekend
     public void testFourthOfJulyWeekendLadder()
     {

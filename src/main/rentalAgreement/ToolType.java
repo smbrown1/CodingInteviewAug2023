@@ -16,4 +16,19 @@ public enum ToolType
         this.weekendCharge = weekendCharge;
         this.holidayCharge = holidayCharge;
     }
+
+    public double getDailyCharge()
+    {
+        return dailyCharge;
+    }
+
+    public boolean isWeekendCharge()
+    {
+        return weekendCharge;
+    }
+
+    public boolean isHolidayCharge()
+    {
+        return holidayCharge;
+    }
 }
