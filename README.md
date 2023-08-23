@@ -5,3 +5,4 @@ This project uses the following assumptions
     
 Potential Future Work
 - Optimization around tool rental longer than a year
+- Add more protection around illegal arguments to optional main method

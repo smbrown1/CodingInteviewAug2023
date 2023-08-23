@@ -12,8 +12,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class RentalAgreementGeneratorTest
 {
-    private final RentalAgreementGenerator rentalAgreementGenerator = new RentalAgreementGenerator();
-
     @Test
     public void testNoDiscountSingleDay()
     {
@@ -32,7 +30,7 @@ class RentalAgreementGeneratorTest
                 2.99
         );
 
-        RentalAgreement result = rentalAgreementGenerator.generateAgreement("JAKR", checkoutDate, 1, 0);
+        RentalAgreement result = RentalAgreementGenerator.generateAgreement("JAKR", checkoutDate, 1, 0);
 
         assertEquals(expected, result);
     }
@@ -42,7 +40,7 @@ class RentalAgreementGeneratorTest
     {
         String checkoutDate = "09/03/2015";
 
-        assertThrows(IllegalArgumentException.class, () -> rentalAgreementGenerator.generateAgreement("JAKR", checkoutDate, 1, 101));
+        assertThrows(IllegalArgumentException.class, () -> RentalAgreementGenerator.generateAgreement("JAKR", checkoutDate, 1, 101));
     }
 
     @Test
@@ -50,7 +48,7 @@ class RentalAgreementGeneratorTest
     {
         String checkoutDate = "09/03/2015";
 
-        assertThrows(IllegalArgumentException.class, () -> rentalAgreementGenerator.generateAgreement("JAKR", checkoutDate, -1, 0));
+        assertThrows(IllegalArgumentException.class, () -> RentalAgreementGenerator.generateAgreement("JAKR", checkoutDate, -1, 0));
     }
 
     @Test
@@ -58,7 +56,7 @@ class RentalAgreementGeneratorTest
     {
         String checkoutDate = "09/03/2015";
 
-        assertThrows(IllegalArgumentException.class, () -> rentalAgreementGenerator.generateAgreement("FAKE", checkoutDate, 1, 0));
+        assertThrows(IllegalArgumentException.class, () -> RentalAgreementGenerator.generateAgreement("FAKE", checkoutDate, 1, 0));
     }
 
     @Test
@@ -70,8 +68,8 @@ class RentalAgreementGeneratorTest
         RentalAgreement expected = new RentalAgreement(
                 CHNS,
                 4,
-                LocalDate.parse(checkoutDate, DateTimeFormatter.ofPattern("MM/dd/yyyy")), //Thursday
-                LocalDate.parse(expectedDueDate, DateTimeFormatter.ofPattern("MM/dd/yyyy")), //Friday
+                LocalDate.parse(checkoutDate, DateTimeFormatter.ofPattern("MM/dd/yyyy")),
+                LocalDate.parse(expectedDueDate, DateTimeFormatter.ofPattern("MM/dd/yyyy")),
                 2,
                 2.98,
                 0,
@@ -79,7 +77,7 @@ class RentalAgreementGeneratorTest
                 2.98
         );
 
-        RentalAgreement result = rentalAgreementGenerator.generateAgreement("CHNS", checkoutDate, 4, 0);
+        RentalAgreement result = RentalAgreementGenerator.generateAgreement("CHNS", checkoutDate, 4, 0);
 
         assertEquals(expected, result);
     }
@@ -94,8 +92,8 @@ class RentalAgreementGeneratorTest
         RentalAgreement expected = new RentalAgreement(
                 LADW,
                 3,
-                LocalDate.parse(checkoutDate, DateTimeFormatter.ofPattern("MM/dd/yyyy")), //Thursday
-                LocalDate.parse(expectedDueDate, DateTimeFormatter.ofPattern("MM/dd/yyyy")), //Friday
+                LocalDate.parse(checkoutDate, DateTimeFormatter.ofPattern("MM/dd/yyyy")),
+                LocalDate.parse(expectedDueDate, DateTimeFormatter.ofPattern("MM/dd/yyyy")),
                 2,
                 3.98,
                 10,
@@ -103,7 +101,7 @@ class RentalAgreementGeneratorTest
                 3.58
         );
 
-        RentalAgreement result = rentalAgreementGenerator.generateAgreement("LADW", checkoutDate, 3, 10);
+        RentalAgreement result = RentalAgreementGenerator.generateAgreement("LADW", checkoutDate, 3, 10);
 
         assertEquals(expected, result);
     }
@@ -118,8 +116,8 @@ class RentalAgreementGeneratorTest
         RentalAgreement expected = new RentalAgreement(
                 CHNS,
                 5,
-                LocalDate.parse(checkoutDate, DateTimeFormatter.ofPattern("MM/dd/yyyy")), //Thursday
-                LocalDate.parse(expectedDueDate, DateTimeFormatter.ofPattern("MM/dd/yyyy")), //Friday
+                LocalDate.parse(checkoutDate, DateTimeFormatter.ofPattern("MM/dd/yyyy")),
+                LocalDate.parse(expectedDueDate, DateTimeFormatter.ofPattern("MM/dd/yyyy")),
                 3,
                 4.47,
                 25,
@@ -127,7 +125,7 @@ class RentalAgreementGeneratorTest
                 3.35
         );
 
-        RentalAgreement result = rentalAgreementGenerator.generateAgreement("CHNS", checkoutDate, 5, 25);
+        RentalAgreement result = RentalAgreementGenerator.generateAgreement("CHNS", checkoutDate, 5, 25);
 
         assertEquals(expected, result);
     }
@@ -142,8 +140,8 @@ class RentalAgreementGeneratorTest
         RentalAgreement expected = new RentalAgreement(
                 JAKD,
                 6,
-                LocalDate.parse(checkoutDate, DateTimeFormatter.ofPattern("MM/dd/yyyy")), //Thursday
-                LocalDate.parse(expectedDueDate, DateTimeFormatter.ofPattern("MM/dd/yyyy")), //Friday
+                LocalDate.parse(checkoutDate, DateTimeFormatter.ofPattern("MM/dd/yyyy")),
+                LocalDate.parse(expectedDueDate, DateTimeFormatter.ofPattern("MM/dd/yyyy")),
                 3,
                 8.97,
                 0,
@@ -151,7 +149,7 @@ class RentalAgreementGeneratorTest
                 8.97
         );
 
-        RentalAgreement result = rentalAgreementGenerator.generateAgreement("JAKD", checkoutDate, 6, 0);
+        RentalAgreement result = RentalAgreementGenerator.generateAgreement("JAKD", checkoutDate, 6, 0);
 
         assertEquals(expected, result);
     }
@@ -166,8 +164,8 @@ class RentalAgreementGeneratorTest
         RentalAgreement expected = new RentalAgreement(
                 JAKR,
                 9,
-                LocalDate.parse(checkoutDate, DateTimeFormatter.ofPattern("MM/dd/yyyy")), //Thursday
-                LocalDate.parse(expectedDueDate, DateTimeFormatter.ofPattern("MM/dd/yyyy")), //Friday
+                LocalDate.parse(checkoutDate, DateTimeFormatter.ofPattern("MM/dd/yyyy")),
+                LocalDate.parse(expectedDueDate, DateTimeFormatter.ofPattern("MM/dd/yyyy")),
                 6,
                 17.94,
                 0,
@@ -175,7 +173,7 @@ class RentalAgreementGeneratorTest
                 17.94
         );
 
-        RentalAgreement result = rentalAgreementGenerator.generateAgreement("JAKR", checkoutDate, 9, 0);
+        RentalAgreement result = RentalAgreementGenerator.generateAgreement("JAKR", checkoutDate, 9, 0);
 
         assertEquals(expected, result);
     }
@@ -198,7 +196,7 @@ class RentalAgreementGeneratorTest
                 1.50
         );
 
-        RentalAgreement result = rentalAgreementGenerator.generateAgreement("JAKR", checkoutDate, 4, 50);
+        RentalAgreement result = RentalAgreementGenerator.generateAgreement("JAKR", checkoutDate, 4, 50);
 
         assertEquals(expected, result);
     }

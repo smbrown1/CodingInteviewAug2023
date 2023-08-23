@@ -2,7 +2,7 @@ package main.rentalAgreement;
 
 public enum ToolType
 {
-    LADDER(1.99,true, false),
+    LADDER(1.99, true, false),
     CHAINSAW(1.49, false, true),
     JACKHAMMER(2.99, false, false);
 

@@ -5,13 +5,12 @@ import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-import static main.rentalAgreement.Tool.JAKR;
 
 public class RentalAgreementGenerator
 {
     private final static int RENTAL_DAYS_OFFSET = 1;
 
-    public RentalAgreement generateAgreement(String toolCode, String checkoutDateText, int rentalDays, double discount)
+    public static RentalAgreement generateAgreement(String toolCode, String checkoutDateText, int rentalDays, double discount)
     {
         if (rentalDays < 1)
             throw new IllegalArgumentException("Rental days must be positive");
@@ -40,7 +39,7 @@ public class RentalAgreementGenerator
         );
     }
 
-    public static LocalDate calculateDueDate(LocalDate checkoutDay, int rentalDays)
+    private static LocalDate calculateDueDate(LocalDate checkoutDay, int rentalDays)
     {
         return checkoutDay.plusDays(rentalDays - RENTAL_DAYS_OFFSET);
     }
