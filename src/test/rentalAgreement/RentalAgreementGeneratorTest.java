@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-import static main.rentalAgreement.Tool.JAKR;
+import static main.rentalAgreement.Tool.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class RentalAgreementGeneratorTest
@@ -68,14 +68,14 @@ class RentalAgreementGeneratorTest
         String expectedDueDate = "08/10/2015";
 
         RentalAgreement expected = new RentalAgreement(
-                JAKR,
+                CHNS,
                 4,
                 LocalDate.parse(checkoutDate, DateTimeFormatter.ofPattern("MM/dd/yyyy")), //Thursday
                 LocalDate.parse(expectedDueDate, DateTimeFormatter.ofPattern("MM/dd/yyyy")), //Friday
                 2,
-                5.96,
-                0,
                 2.98,
+                0,
+                0,
                 2.98
         );
 
@@ -92,15 +92,15 @@ class RentalAgreementGeneratorTest
         String expectedDueDate = "07/04/2020";
 
         RentalAgreement expected = new RentalAgreement(
-                JAKR,
+                LADW,
                 3,
                 LocalDate.parse(checkoutDate, DateTimeFormatter.ofPattern("MM/dd/yyyy")), //Thursday
                 LocalDate.parse(expectedDueDate, DateTimeFormatter.ofPattern("MM/dd/yyyy")), //Friday
                 2,
-                2.99,
+                3.98,
                 10,
-                0.29,
-                2.7
+                0.4,
+                3.58
         );
 
         RentalAgreement result = rentalAgreementGenerator.generateAgreement("LADW", checkoutDate, 3, 10);
@@ -116,11 +116,11 @@ class RentalAgreementGeneratorTest
         String expectedDueDate = "07/06/2015";
 
         RentalAgreement expected = new RentalAgreement(
-                JAKR,
+                CHNS,
                 5,
                 LocalDate.parse(checkoutDate, DateTimeFormatter.ofPattern("MM/dd/yyyy")), //Thursday
                 LocalDate.parse(expectedDueDate, DateTimeFormatter.ofPattern("MM/dd/yyyy")), //Friday
-                4,
+                3,
                 4.47,
                 25,
                 1.12,
@@ -140,7 +140,7 @@ class RentalAgreementGeneratorTest
         String expectedDueDate = "09/08/2015";
 
         RentalAgreement expected = new RentalAgreement(
-                JAKR,
+                JAKD,
                 6,
                 LocalDate.parse(checkoutDate, DateTimeFormatter.ofPattern("MM/dd/yyyy")), //Thursday
                 LocalDate.parse(expectedDueDate, DateTimeFormatter.ofPattern("MM/dd/yyyy")), //Friday
@@ -169,10 +169,10 @@ class RentalAgreementGeneratorTest
                 LocalDate.parse(checkoutDate, DateTimeFormatter.ofPattern("MM/dd/yyyy")), //Thursday
                 LocalDate.parse(expectedDueDate, DateTimeFormatter.ofPattern("MM/dd/yyyy")), //Friday
                 6,
-                2.99,
+                17.94,
                 0,
                 0,
-                2.99
+                17.94
         );
 
         RentalAgreement result = rentalAgreementGenerator.generateAgreement("JAKR", checkoutDate, 9, 0);
@@ -184,18 +184,18 @@ class RentalAgreementGeneratorTest
     public void testJAKRFourthOfJulyWeekendWithDiscount()
     {
         String checkoutDate = "07/02/2020";
-        String expectedDueDate = "07/06/2020";
+        String expectedDueDate = "07/05/2020";
 
         RentalAgreement expected = new RentalAgreement(
                 JAKR,
                 4,
                 LocalDate.parse(checkoutDate, DateTimeFormatter.ofPattern("MM/dd/yyyy")),
                 LocalDate.parse(expectedDueDate, DateTimeFormatter.ofPattern("MM/dd/yyyy")),
-                2,
-                5.98,
-                50,
+                1,
                 2.99,
-                2.99
+                50,
+                1.49,
+                1.50
         );
 
         RentalAgreement result = rentalAgreementGenerator.generateAgreement("JAKR", checkoutDate, 4, 50);
