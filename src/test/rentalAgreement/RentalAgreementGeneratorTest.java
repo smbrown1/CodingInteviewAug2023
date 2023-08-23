@@ -79,7 +79,7 @@ class RentalAgreementGeneratorTest
                 2.98
         );
 
-        RentalAgreement result = rentalAgreementGenerator.generateAgreement("CHNS", checkoutDate, 5, 0);
+        RentalAgreement result = rentalAgreementGenerator.generateAgreement("CHNS", checkoutDate, 4, 0);
 
         assertEquals(expected, result);
     }
